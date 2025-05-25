@@ -1,0 +1,27 @@
+@Abyx.Ai.Api_HostAddress = http://localhost:5290
+
+POST {{Abyx.Ai.Api_HostAddress}}/api/chat
+Accept: application/json
+Content-Type: application/json
+
+{
+  "input": "What's my IP address?"
+}
+###
+POST {{Abyx.Ai.Api_HostAddress}}/api/chat
+Accept: application/json
+Content-Type: application/json
+
+{
+  "input": "What are our products in the Imaging category?"
+}
+###
+
+POST {{Abyx.Ai.Api_HostAddress}}/api/chat
+Accept: application/json
+Content-Type: application/json
+
+{
+  "input": "How to boil an egg?"
+}
+###

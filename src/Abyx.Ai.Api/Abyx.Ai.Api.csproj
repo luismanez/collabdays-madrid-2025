@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2" />
+    <PackageReference Include="FastEndpoints" Version="5.29.0" />
+    <PackageReference Include="FastEndpoints.Swagger" Version="5.29.0" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.36.1" />
+    <PackageReference Include="Microsoft.SemanticKernel.PromptTemplates.Handlebars" Version="1.36.1" />
+    <PackageReference Include="Microsoft.SemanticKernel.Yaml" Version="1.36.1" />
+    <PackageReference Include="Microsoft.SemanticKernel.Plugins.Memory" Version="1.36.1-alpha" />
+    <PackageReference Include="Microsoft.KernelMemory.Core" Version="0.97.250211.1" />
+    <PackageReference Include="Microsoft.KernelMemory.MemoryDb.AzureAISearch" Version="0.97.250211.1" />
+    <PackageReference Include="Microsoft.KernelMemory.AI.AzureOpenAI" Version="0.97.250211.1" />
+    <PackageReference Include="Microsoft.KernelMemory.DocumentStorage.AzureBlobs" Version="0.97.250211.1" />
+    <PackageReference Include="Microsoft.KernelMemory.SemanticKernelPlugin" Version="0.97.250211.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Plugins/Semantic/OurProductsPlugin/OurProducts/OurProducts.yaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Plugins/Semantic/OurProductsPlugin/OurProducts/OurProducts.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <LogicalName>Abyx.Ai.Api.Extensions.OurProducts.yaml</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
