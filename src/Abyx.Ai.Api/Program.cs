@@ -6,7 +6,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
    .AddFastEndpoints()
-   .SwaggerDocument();
+   .SwaggerDocument(options =>
+   {
+       options.DocumentSettings = s =>
+       {
+           s.Title = "Abyx AI Our Products API";
+           s.Version = "v1";
+           s.Description = "API for AI chat completions with product information and memory capabilities";
+       };
+   });
 
 builder.Services.AddHttpClient();
 

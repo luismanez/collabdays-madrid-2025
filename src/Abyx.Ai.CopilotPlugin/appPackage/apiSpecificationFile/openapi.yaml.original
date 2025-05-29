@@ -1,0 +1,95 @@
+{
+  "x-generator": "NSwag v14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Abyx AI Our Products API",
+    "description": "API for AI chat completions with product information and memory capabilities",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5290"
+    }
+  ],
+  "paths": {
+    "/api/chat": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "summary": "Get AI chat completions about our products",
+        "description": "Sends a chat request to the AI model and returns a response with products information",
+        "operationId": "AbyxAiApiFeaturesChatGetChatCompletionsGetChatCompletionsEndpoint",
+        "requestBody": {
+          "x-name": "GetChatCompletionsRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AbyxAiApiFeaturesChatGetChatCompletionsGetChatCompletionsRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully processed the chat request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AbyxAiApiFeaturesChatGetChatCompletionsGetChatCompletionsResponse"
+                },
+                "example": {
+                  "chatAnswer": "We have several products in the Technology category, including laptops, smartphones, and tablets.",
+                  "userQuery": "What products do you have in the Technology category?"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AbyxAiApiFeaturesChatGetChatCompletionsGetChatCompletionsResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "chatAnswer": {
+            "type": "string"
+          },
+          "userQuery": {
+            "type": "string"
+          }
+        }
+      },
+      "AbyxAiApiFeaturesChatGetChatCompletionsGetChatCompletionsRequest": {
+        "type": "object",
+        "example": {
+          "input": "What products do you have in the Technology category?"
+        },
+        "additionalProperties": false,
+        "required": [
+          "input"
+        ],
+        "properties": {
+          "input": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "JWTBearerAuth": {
+        "type": "http",
+        "description": "Enter a JWT token to authorize the requests...",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

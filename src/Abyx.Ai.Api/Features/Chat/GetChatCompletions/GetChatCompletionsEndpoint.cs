@@ -5,7 +5,9 @@ using Microsoft.KernelMemory;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 
+
 namespace Abyx.Ai.Api.Features.Chat.GetChatCompletions;
+
 
 public class GetChatCompletionsEndpoint : Endpoint<GetChatCompletionsRequest, GetChatCompletionsResponse>
 {
@@ -30,6 +32,22 @@ public class GetChatCompletionsEndpoint : Endpoint<GetChatCompletionsRequest, Ge
     {
         Post("/api/chat");
         AllowAnonymous();
+
+        // Add Swagger documentation
+        Summary(s =>
+        {
+            s.Summary = "Get AI chat completions about our products";
+            s.Description = "Sends a chat request to the AI model and returns a response with products information";
+            s.ExampleRequest = new GetChatCompletionsRequest { Input = "What products do you have in the Technology category?" };
+            s.Response(200, "Successfully processed the chat request", example: new GetChatCompletionsResponse
+            {
+                UserQuery = "What products do you have in the Technology category?",
+                ChatAnswer = "We have several products in the Technology category, including laptops, smartphones, and tablets."
+            });
+        });
+
+        // Add tags for better organization in Swagger UI
+        Tags("Chat");
     }
 
     public override async Task HandleAsync(GetChatCompletionsRequest req, CancellationToken ct)

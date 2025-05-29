@@ -1,0 +1,44 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.1/schema.json",
+    "schema_version": "v2.1",
+    "name_for_human": "Abyx AI Our Products API",
+    "description_for_human": "API for AI chat completions with product information and memory capabilities",
+    "description_for_model": "API for AI chat completions with product information and memory capabilities",
+    "contact_email": "publisher-email@example.com",
+    "namespace": "abyxaicopilotplugin",
+    "capabilities": {
+        "conversation_starters": [
+            {
+                "text": "Get AI chat completions about our products"
+            }
+        ]
+    },
+    "functions": [
+        {
+            "name": "AbyxAiApiFeaturesChatGetChatCompletionsGetChatCompletionsEndpoint",
+            "description": "Sends a chat request to the AI model and returns a response with products information",
+            "capabilities": {
+                "response_semantics": {
+                    "data_path": "$",
+                    "static_template": {
+                        "file": "./adaptiveCards/AbyxAiApiFeaturesChatGetChatCompletionsGetChatCompletionsEndpoint.json"
+                    }
+                }
+            }
+        }
+    ],
+    "runtimes": [
+        {
+            "type": "OpenApi",
+            "auth": {
+                "type": "None"
+            },
+            "spec": {
+                "url": "apiSpecificationFile/openapi.yaml"
+            },
+            "run_for_functions": [
+                "AbyxAiApiFeaturesChatGetChatCompletionsGetChatCompletionsEndpoint"
+            ]
+        }
+    ]
+}

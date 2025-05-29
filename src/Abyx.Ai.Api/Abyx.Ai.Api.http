@@ -1,4 +1,4 @@
-@Abyx.Ai.Api_HostAddress = http://localhost:5290
+@Abyx.Ai.Api_HostAddress = https://wp3jxw50-7263.uks1.devtunnels.ms
 
 POST {{Abyx.Ai.Api_HostAddress}}/api/chat
 Accept: application/json
