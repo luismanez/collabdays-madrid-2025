@@ -1,8 +1,8 @@
 {
     "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.3/schema.json",
     "version": "v1.3",
-    "name": "Abyx.Ai.CopilotPlugin",
-    "description": "Declarative agent created with Microsoft 365 Agents Toolkit can assist user in calling APIs and retrieving responses",
+    "name": "Abyx Our Products",
+    "description": "Declarative agent that helps you answer questions about our products in Abyx.",
     "instructions": "$[file('instruction.txt')]",
     "actions": [
         {
@@ -12,7 +12,10 @@
     ],
     "conversation_starters": [
         {
-            "text": "Get AI chat completions about our products"
+            "text": "What are our products in the Imaging category?"
+        },
+        {
+            "text": "What is the Abyx EchoSphere Speaker?"
         }
     ]
 }

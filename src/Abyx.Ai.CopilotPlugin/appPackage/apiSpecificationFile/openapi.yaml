@@ -4,7 +4,7 @@ info:
   description: API for AI chat completions with product information and memory capabilities
   version: v1
 servers:
-  - url: https://wp3jxw50-7263.uks1.devtunnels.ms
+  - url: https://cz570gwg-7263.uks1.devtunnels.ms
 paths:
   /api/chat:
     post:
